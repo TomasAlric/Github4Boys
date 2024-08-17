@@ -5,10 +5,22 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps: 
-     - name: Set up .NET
-       uses: xt0rted/setup-dotnet@v1.0.0
 
-     - name: build dotnet
-       run: |
-       dotnet build **/*.csproj
+    steps:
+      # Step 1: Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Setup .NET SDK
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.x' # Altere para a versão do .NET que você está usando
+
+      # Step 3: Restore dependencies
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # Step 4: Build the project
+      - name: Build .NET project
+        run: dotnet build --configuration Release --no-restore
