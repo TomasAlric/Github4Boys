@@ -19,8 +19,8 @@ jobs:
 
       # Step 3: Restore dependencies
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore **/*.csproj
 
       # Step 4: Build the project
       - name: Build .NET project
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build **/*.csproj --no-restore
