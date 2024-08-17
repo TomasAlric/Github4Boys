@@ -1,0 +1,14 @@
+name: Build CI DOTNET
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+     - name: Set up .NET
+       uses: xt0rted/setup-dotnet@v1.0.0
+
+     - name: build dotnet
+       run: |
+       dotnet build **/*.csproj
