@@ -2,3 +2,6 @@
 Atividade de criação de repositório
 
 ### Potato
+
+`alias`
+
